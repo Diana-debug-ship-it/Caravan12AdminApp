@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Caravan-12 Admin App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="nav_menu_users">Пользователи</string>
+    <string name="nav_menu_tour_requests">Заявки на подбор тура</string>
+    <string name="nav_menu_events">Заявки на акции</string>
+    <string name="registeredUsers">Зарегистрированные пользователи</string>
+    <string name="strTourRequestsList">Список заявок на подбор тура</string>
+    <string name="strEmpty">null</string>
+    <string name="strApplicationNumber">Заявка от</string>
+    <string name="etEnterEmail">Введите email</string>
+    <string name="etEnterPassword">Введите пароль</string>
+    <string name="strWrongEmailOrPassword">Неверный адрес электронной почты или пароль</string>
+    <string name="warningEmptyFields">Все поля должны быть заполнены!</string>
+    <string name="options_menu_signOut">Выйти из аккаунта</string>
+</resources>

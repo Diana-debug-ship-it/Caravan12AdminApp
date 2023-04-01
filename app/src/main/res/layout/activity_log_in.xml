@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.LogInActivity">
+
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="316dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/caravan12logo" />
+
+    <EditText
+        android:id="@+id/edTextEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_regular"
+        android:hint="@string/etEnterEmail"
+        android:padding="10dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo" />
+
+    <EditText
+        android:id="@+id/edTextPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:fontFamily="@font/alegreya_regular"
+        android:hint="@string/etEnterPassword"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/edTextEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edTextEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edTextEmail"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonLogIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/sky_darkBlue"
+        android:fontFamily="@font/alegreya_medium"
+        android:onClick="onClickSignIn"
+        android:padding="10dp"
+        android:text="Войти"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:cornerRadius="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edTextPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/edTextPassword"
+        app:layout_constraintVertical_bias="0.149" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

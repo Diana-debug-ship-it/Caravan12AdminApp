@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@android:color/holo_orange_light"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/someLayout"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_medium"
+            android:padding="10dp"
+            android:text="@string/strApplicationNumber"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvApplicantEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/alegreya_medium"
+            android:padding="10dp"
+            android:text="@string/strEmpty"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textEmail"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/expandedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingBottom="10dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@id/someLayout"
+            app:layout_constraintStart_toStartOf="@id/someLayout"
+            app:layout_constraintTop_toBottomOf="@id/textEmail">
+
+            <TextView
+                android:id="@+id/textWhere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:text="Куда:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvWhere"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/alegreya_medium"
+                android:paddingStart="5dp"
+                android:text="@string/strEmpty"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/textWhere"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:text="Откуда:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textWhere"
+                app:layout_constraintTop_toBottomOf="@id/textWhere" />
+
+            <TextView
+                android:id="@+id/tvFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_medium"
+                android:text="@string/strEmpty"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textFrom"
+                app:layout_constraintTop_toBottomOf="@id/textWhere" />
+
+            <TextView
+                android:id="@+id/textDateOfDeparture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:text="Дата выезда:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textWhere"
+                app:layout_constraintTop_toBottomOf="@id/textFrom" />
+
+            <TextView
+                android:id="@+id/tvDateOfDeparture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_medium"
+                android:text="@string/strEmpty"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textDateOfDeparture"
+                app:layout_constraintTop_toBottomOf="@id/textFrom" />
+
+            <TextView
+                android:id="@+id/textNights"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:text="Количество ночей:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textDateOfDeparture"
+                app:layout_constraintTop_toBottomOf="@id/textDateOfDeparture" />
+
+            <TextView
+                android:id="@+id/tvNights"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_medium"
+                android:text="@string/strEmpty"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textNights"
+                app:layout_constraintTop_toBottomOf="@id/textDateOfDeparture" />
+
+            <TextView
+                android:id="@+id/textPeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:text="Количество отдыхающих:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textNights"
+                app:layout_constraintTop_toBottomOf="@id/textNights" />
+
+            <TextView
+                android:id="@+id/tvPeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_medium"
+                android:text="@string/strEmpty"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textPeople"
+                app:layout_constraintTop_toBottomOf="@id/textNights" />
+
+            <TextView
+                android:id="@+id/textComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:text="Пожелания:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textPeople"
+                app:layout_constraintTop_toBottomOf="@id/textPeople" />
+
+            <TextView
+                android:id="@+id/tvComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_medium"
+                android:text="@string/strEmpty"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textComments"
+                app:layout_constraintTop_toBottomOf="@id/textPeople" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/nav_menu_users"
+        android:id="@+id/users"
+        android:icon="@drawable/ic_users"
+        android:fontFamily="@font/alegreya_regular"/>
+    <item android:title="@string/nav_menu_tour_requests"
+        android:id="@+id/tour_requests"
+        android:icon="@drawable/ic_tour_requests"
+        android:fontFamily="@font/alegreya_regular"/>
+</menu>
