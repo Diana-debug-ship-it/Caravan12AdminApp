@@ -1,6 +1,5 @@
 package com.caravan12.admin.app.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +8,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.caravan12.admin.app.R
 import com.caravan12.admin.app.data_classes.TourRequestInfo
-import com.google.android.material.button.MaterialButton
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RVTourRequestsAdapter(private val requestsList: ArrayList<TourRequestInfo>): RecyclerView.Adapter<RVTourRequestsAdapter.RViewHolder>() {
+
+    private lateinit var db: FirebaseFirestore
+
     class RViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var applicantEmail: TextView = itemView.findViewById(R.id.tvApplicantEmail)
         var from: TextView = itemView.findViewById(R.id.tvFrom)
@@ -24,8 +22,12 @@ class RVTourRequestsAdapter(private val requestsList: ArrayList<TourRequestInfo>
         var howManyPeople: TextView = itemView.findViewById(R.id.tvPeople)
         var nights: TextView = itemView.findViewById(R.id.tvNights)
         var comments: TextView = itemView.findViewById(R.id.tvComments)
+        var children: TextView = itemView.findViewById(R.id.tvChildren)
+        var meals: TextView = itemView.findViewById(R.id.tvMeals)
+        var rating: TextView = itemView.findViewById(R.id.tvRating)
 
         var constraintLayout: ConstraintLayout = itemView.findViewById(R.id.expandedLayout)
+        var deleteApplication: TextView = itemView.findViewById(R.id.tvDeleteApplication)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RViewHolder {
@@ -36,13 +38,16 @@ class RVTourRequestsAdapter(private val requestsList: ArrayList<TourRequestInfo>
     override fun onBindViewHolder(holder: RViewHolder, position: Int) {
         val currentItem = requestsList[position]
 
-        holder.applicantEmail.text = currentItem.applicantEmail
+        holder.applicantEmail.text = currentItem.email
         holder.from.text = currentItem.from
-        holder.where.text = currentItem.where
+        holder.where.text = currentItem.destination
         holder.dateOfDeparture.text = currentItem.dateOfDeparture
-        holder.howManyPeople.text = currentItem.howManyPeople
+        holder.howManyPeople.text = currentItem.adults
         holder.nights.text = currentItem.nights
         holder.comments.text = currentItem.comments
+        holder.children.text = currentItem.children
+        holder.meals.text = currentItem.meals
+        holder.rating.text = currentItem.rating
 
         val isVisible: Boolean = currentItem.visibility
         holder.constraintLayout.visibility = if(isVisible) View.VISIBLE else View.GONE
@@ -51,6 +56,17 @@ class RVTourRequestsAdapter(private val requestsList: ArrayList<TourRequestInfo>
             currentItem.visibility = !currentItem.visibility
             notifyItemChanged(position)
         }
+
+
+        holder.deleteApplication.setOnClickListener{
+            db = FirebaseFirestore.getInstance()
+            requestsList.get(position).id?.let { it1 -> db.collection("tourRequests").document(it1).delete()
+                .addOnSuccessListener {
+                    requestsList.remove(requestsList[position])
+                    notifyDataSetChanged()
+                }}
+        }
+
     }
 
     override fun getItemCount(): Int {

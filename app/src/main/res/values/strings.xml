@@ -13,4 +13,7 @@
     <string name="strWrongEmailOrPassword">Неверный адрес электронной почты или пароль</string>
     <string name="warningEmptyFields">Все поля должны быть заполнены!</string>
     <string name="options_menu_signOut">Выйти из аккаунта</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_name_of_event">Название акции</string>
 </resources>

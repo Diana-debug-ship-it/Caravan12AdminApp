@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.caravan12.admin.app.R
 import com.caravan12.admin.app.databinding.ActivityMainBinding
+import com.caravan12.admin.app.fragments.EventsFragment
 import com.caravan12.admin.app.fragments.TourRequestsFragment
 import com.caravan12.admin.app.fragments.UsersFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -37,11 +38,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.tour_requests -> {
                     showFragment(TourRequestsFragment.newInstance())
                 }
+                R.id.events -> {
+                    showFragment(EventsFragment.newInstance())
+                }
             }
             return@setOnItemSelectedListener true
         }
-
-
     }
 
     override fun onStart() {

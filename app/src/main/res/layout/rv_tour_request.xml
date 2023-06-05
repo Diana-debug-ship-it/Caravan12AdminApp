@@ -149,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/alegreya_regular"
-                android:text="Количество отдыхающих:"
+                android:text="Взрослые:"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/textNights"
@@ -175,8 +175,8 @@
                 android:text="Пожелания:"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/textPeople"
-                app:layout_constraintTop_toBottomOf="@id/textPeople" />
+                app:layout_constraintStart_toStartOf="@+id/textRating"
+                app:layout_constraintTop_toBottomOf="@id/textRating" />
 
             <TextView
                 android:id="@+id/tvComments"
@@ -188,7 +188,91 @@
                 android:textSize="16sp"
                 android:paddingStart="5dp"
                 app:layout_constraintStart_toEndOf="@+id/textComments"
+                app:layout_constraintTop_toBottomOf="@id/textRating" />
+
+            <TextView
+                android:id="@+id/textChildren"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:text="Дети:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textPeople"
                 app:layout_constraintTop_toBottomOf="@id/textPeople" />
+
+            <TextView
+                android:id="@+id/tvChildren"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_medium"
+                android:text="@string/strEmpty"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textChildren"
+                app:layout_constraintTop_toBottomOf="@id/textPeople" />
+
+            <TextView
+                android:id="@+id/textMeals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:text="Питание:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textChildren"
+                app:layout_constraintTop_toBottomOf="@id/textChildren" />
+
+            <TextView
+                android:id="@+id/tvMeals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_medium"
+                android:text="@string/strEmpty"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textMeals"
+                app:layout_constraintTop_toBottomOf="@id/textChildren" />
+
+            <TextView
+                android:id="@+id/textRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:text="Рейтинг отеля:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textMeals"
+                app:layout_constraintTop_toBottomOf="@id/textMeals" />
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_medium"
+                android:text="@string/strEmpty"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textRating"
+                app:layout_constraintTop_toBottomOf="@id/textMeals" />
+
+            <TextView
+                android:id="@+id/tvDeleteApplication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_regular"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingStart="10dp"
+                android:text="Удалить"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/textComments"
+                app:layout_constraintTop_toBottomOf="@id/textComments"
+                app:drawableLeftCompat="@drawable/ic_delete" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

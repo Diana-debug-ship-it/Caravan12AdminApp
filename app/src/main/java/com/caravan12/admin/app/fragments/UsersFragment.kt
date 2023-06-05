@@ -6,12 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.caravan12.admin.app.R
 import com.caravan12.admin.app.adapters.RVUsersAdapter
+import com.caravan12.admin.app.data_classes.TourRequestInfo
 import com.caravan12.admin.app.data_classes.UserInfo
 import com.caravan12.admin.app.databinding.FragmentUsersBinding
 import com.google.firebase.database.*
+import com.google.firebase.firestore.*
+import io.github.muddz.styleabletoast.StyleableToast
 
 class UsersFragment : Fragment() {
 
@@ -20,6 +25,7 @@ class UsersFragment : Fragment() {
     private lateinit var usersArray: ArrayList<UserInfo>
 
     private lateinit var database: DatabaseReference
+    private lateinit var db: FirebaseFirestore
 
     private lateinit var binding: FragmentUsersBinding
 
@@ -51,20 +57,22 @@ class UsersFragment : Fragment() {
     }
 
     private fun getData() {
-        database = FirebaseDatabase.getInstance().getReference("users")
-        database.addValueEventListener(object: ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (userSnapshot in snapshot.children) {
-                        val user = userSnapshot.getValue(UserInfo::class.java)
-                        usersArray.add(user!!)
+        db = FirebaseFirestore.getInstance()
+        db.collection("users").get()
+            .addOnSuccessListener {
+                if (!it.isEmpty) {
+                    for (data in it.documents) {
+                        val user: UserInfo? = data.toObject(UserInfo::class.java)
+                        if (user!=null) {
+                            usersArray.add(user)
+                        }
                     }
-                    recyclerViewUsers.adapter = RVUsersAdapter(usersArray)
+                    adapter.notifyDataSetChanged()
                 }
             }
-            override fun onCancelled(error: DatabaseError) {
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Ошибка при получении данных", Toast.LENGTH_SHORT).show()
             }
-        })
     }
 
     companion object {
